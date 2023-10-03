@@ -4,8 +4,8 @@
   "description": "Posts exercise",
   "main": "src/index.ts",
   "scripts": {
-    "start": "node ./build/index.js",
-    "dev": "nodemon ./src/index.ts",
+    "start": "node build/index.js",
+    "dev": "nodemon src/index.ts",
     "build": "rm -rf build/ && tsc",
     "test": "jest"
   },
