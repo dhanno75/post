@@ -7,7 +7,8 @@
 
     "esModuleInterop": true /* 
     "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
-
+    "preserveSymlinks": true,
+    "forceConsistentCasingInFileNames": true,
     /* Type Checking */
     "strict": true /* Enable all strict type-checking options. */,
 
@@ -15,3 +16,27 @@
   },
   "include": ["src/**/*", "src/test"]
 }
+
+// "build": "rm -rf build/ && tsc",
+
+// {
+//   "version": 2,
+//   "builds": [
+//     {
+//       "src": "src/api/**/*.ts",     // Source directory for TypeScript files
+//       "use": "@now/node",          // Use the Node.js builder
+//       "config": {
+//         "maxLambdaSize": "50mb"    // Set maximum lambda size (adjust as needed)
+//       }
+//     }
+//   ],
+//   "routes": [
+//     {
+//       "src": "/api(/.*)?",         // Route pattern to match API requests
+//       "dest": "/src/api/$1.ts",   // Destination path for API routes
+//       "methods": ["GET", "POST", "PUT", "D
+// "DELETE"] // HTTP methods to route
+//     },
+//     // Add more routes as needed
+//   ]
+// }
