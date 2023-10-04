@@ -1,5 +1,7 @@
 import mongoose, { Document, Schema, Types } from "mongoose";
+// the document provides the _id, timestamp everything we need inside mongo model
 
+// this is base for simple validation
 export interface IPost {
   title: string;
   content: string;
