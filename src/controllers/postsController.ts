@@ -146,20 +146,33 @@ export const getLatestPost = async (
   res: Response,
   next: NextFunction
 ) => {
-  const posts = await Post.aggregate([
-    {
-      $group: {
-        _id: "$category_id",
-        posts: {
-          $push: "$$ROOT",
+  try {
+    const posts = await Post.aggregate([
+      {
+        $group: {
+          _id: "$category_id",
+          posts: {
+            $push: "$$ROOT",
+          },
         },
       },
-    },
-  ]);
+    ]);
 
-  res.status(200).json({
-    status: "success",
-    message: "Post created successfully",
-    data: posts,
-  });
+    const latestPosts = posts.reduce((acc, product) => {
+      acc.push(product.posts[product.posts.length - 1]);
+      return acc;
+    }, []);
+
+    res.status(200).json({
+      status: "success",
+      message: "Post created successfully",
+      data: latestPosts,
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "fail",
+      message: "Please try again",
+      error: err,
+    });
+  }
 };
