@@ -14,7 +14,7 @@
 
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["src/**/*", "src/test"]
+  "include": ["src/**/*", "src/test", "build/**/*"]
 }
 
 // "build": "rm -rf build/ && tsc",
