@@ -7,7 +7,7 @@
     "start": "node build/index.js",
     "dev": "nodemon src/index.ts",
     "test": "jest",
-    "vercel-build": "tsc -p ./"
+    "vercel-build": "echo hello"
   },
   "keywords": [],
   "author": "Dhananjay Puppala",
