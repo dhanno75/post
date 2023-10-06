@@ -52,10 +52,17 @@ export const getOnePost = async (
 
     const post = await Post.findById(id);
 
-    return res.status(200).json({
-      status: "success",
-      data: post,
-    });
+    if (post) {
+      return res.status(200).json({
+        status: "success",
+        data: post,
+      });
+    } else {
+      return res.status(404).json({
+        status: "fail",
+        message: "The post with this ID does not exist",
+      });
+    }
   } catch (err) {
     return res.status(500).json({
       status: "fail",
@@ -165,7 +172,6 @@ export const getLatestPost = async (
 
     res.status(200).json({
       status: "success",
-      message: "Post created successfully",
       data: latestPosts,
     });
   } catch (err) {

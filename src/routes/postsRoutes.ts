@@ -22,6 +22,6 @@ router
   .get(getOnePost)
   .put(ValidateSchema(Schemas.post.create), updatePost)
   .delete(deletePost);
-router.route("/post/latest").get(mwBasicAuth, getLatestPost);
+router.get("/post/latest", mwBasicAuth, getLatestPost);
 
 export default router;

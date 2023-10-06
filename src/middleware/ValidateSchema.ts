@@ -14,6 +14,7 @@ export const ValidateSchema = (schema: ObjectSchema) => {
   };
 };
 
+// Schema definitions
 export const Schemas = {
   post: {
     create: Joi.object<IPost>({

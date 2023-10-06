@@ -18,12 +18,15 @@ app.use(express.json());
 
 // Rules of our API
 app.use((req, res, next) => {
+  // 1
   res.header("Access-Control-Allow-Origin", "*");
+  // 2
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requeste-With, Content-Type, Accept, Authorization"
   );
 
+  // 3
   if (req.method == "OPTIONS") {
     res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
 
@@ -45,3 +48,7 @@ app.listen(PORT, () =>
 );
 
 export default app;
+
+// 1) The requests can come from anywhere
+// 2) what headers are allowed in project if they are private
+// 3) If we pass in an options request, its just going to return all of the options we can use inside of the api
